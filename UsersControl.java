@@ -11,7 +11,7 @@ public class UsersControl {
 
 		
 		while(resp != 9999) {
-		System.out.println("  Escolha uma opção:  ");
+		System.out.println("  Escolha uma opcao:  ");
 		System.out.println("      1 - Add 	    ");
 		System.out.println("      2 - List      ");
 		System.out.println("      3 - RM        ");
@@ -19,11 +19,16 @@ public class UsersControl {
 		System.out.println("      5 - Import    ");
 		
 		resp = rd.nextInt();
+		if(resp  > 5){
+			System.out.println("Opção invalida, escolha outra !");
+		}
 		switch(resp){
 			case 1:
+
 				System.out.println("Informe seu nome: ");
-				teclado = rd.nextLine();
-				user1.setNome(teclado);				
+				//teclado = rd.nextLine();
+				teclado = "laercio";
+				user1.setNome(teclado);		
 
 				System.out.println("Informe seu e-mail: ");
 				teclado = rd.nextLine();
@@ -33,7 +38,6 @@ public class UsersControl {
 				user1.getUser();
 				user1.setUsers(user1);
 			
-				break;
 		    case 2:
 		    	user1.getUsers();
 				
