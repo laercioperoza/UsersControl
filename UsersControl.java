@@ -20,7 +20,7 @@ public class UsersControl {
 		
 		resp = rd.nextInt();
 		if(resp  > 5){
-			System.out.println("Opção invalida, escolha outra !");
+			System.out.println("Opcao invalida, escolha outra !");
 		}
 		switch(resp){
 			case 1:
