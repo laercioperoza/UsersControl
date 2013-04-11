@@ -7,60 +7,104 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.swing.JOptionPane;
-
 
 public class User {
 	
 	private String[] name = new String[1000];
-	private String[] email= new String[1000];
+	private String[] email = new String[1000];
 	private int[] id = new int[1000];
-	private int i = 1;
 	
+	private int nam = 0;
+	private int emai = 0;
+	private int ide = 0;
+	private int j = -1;
+	private int r = 1;
+	private int x = 0;
+
 //nome	
 	public String getName() {
-		return name[i];
+		return name[nam];
 	}
 	
 	public void setName(String nome) {
-		this.name[i] = nome;
+		this.name[nam] = nome;
+		nam+=1;
 	}
 //email	
 	public String getEmail() {
-		return email[i];
+		return email[emai];
 	}
 	
 	public void setEmail(String email) {
-		this.email[i] = email;
+		this.email[emai] = email;
+		emai+=1;
 	}
 //id	
 	public int getId() {
-		return id[i];
+		return id[ide];
 	}
 	
 	public void setId() {
-		
-		this.id[i] = i;
-		i += 1;
+		this.id[ide] = r;
+		ide += 1;
+		r += 1;
+
 	}
-	
-	void mostrar(){
-		int j = 1; 
-		while(j < i){
-		JOptionPane.showMessageDialog(null, "Id: "+id[j]+"\nNome: "+name[j]+"\nEmail: "+email[j]);
-		j++;
+	public void getUsers(){
+		while (x < this.name.length){
+			if(this.name[x] == null){}
+			else{
+		System.out.println(this.name[x]);
+		System.out.println(this.email[x]);
+		System.out.println(this.id[x]);
+		x += 1;
+			}
 		}
 	}
 	
+//Users	
+	/*public void setUser(User u){
+		vetor[y] = u;
+		y += 1;
 	
-//Protegido pela lei dos direitos autorais e pela lei de Deus, pq só Deus sabe como isso funciona 	
+	}*/
 	
-// 4 e 5 = Manipulação de arquivos
+	//public void setUsers(String nome){
+		//for(int j = 0; j < vetor.length; i++){
+			//name[j]=this.nome;
+//		}
+	//}
+		
+	/*public void getUsers(){
+		return Users;
+	}*/
+	
+//Manipulacao de arquivos
+	
+	void criar(){
+		java.io.File diretorio = new java.io.File("C:\\Git");
+		
+		boolean statusDir = diretorio.mkdir();
+		System.out.println(statusDir);
+		
+		String arq = "arquivo.txt";
+		
+		java.io.File arquivo = new java.io.File(diretorio,arq);
+		
+		try {
+			boolean statusArq = arquivo.createNewFile();
+			System.out.println(statusArq);
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	//fim cria()
+	}
+	
 	
 	void escrever(User user){
 		File dir = new File("C:\\Git");
 		File arq = new File(dir,"User.txt");
-		int j = 1;
 		
 		try{
 			arq.createNewFile();
@@ -68,11 +112,13 @@ public class User {
             PrintWriter printWriter = new PrintWriter(fileWriter);
             
             
-            while(j < i){
-            	printWriter.println(id[j]+"," +name[j]+ "," +email[j]+";");
+            while(j < nam){
+            	printWriter.println(this.name[nam]);
+            	printWriter.println(this.email[emai]);   
+                printWriter.println(this.id[ide]);
             	j++;
             }
-           
+            
             
             printWriter.flush();
             printWriter.close();
@@ -103,23 +149,6 @@ public class User {
             e.printStackTrace();
         }
     //fim ler()
-	}
-	int x = 0;
-	public void delUser(){
-		String ide = JOptionPane.showInputDialog("Informe o Id a ser deletado: ");
-		int teste = Integer.parseInt(ide);
-		
-		while(x < id.length){
-		if(teste == this.id[x]){
-			this.id[x] = 0 ;
-			this.name[x] = null;
-			this.email = null;
-			break;
-			}
-		x += 1;
-		
-		}
-	
 	}
 	
 //fim

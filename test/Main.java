@@ -24,20 +24,20 @@ User user1 = new User();
 				user1.setId();
 				
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso !!!");
-			
+				System.out.println(user1.getId());
 				
 				break;
 		
 			case 2:
-				user1.mostrar();
+				
+				user1.getUsers();
 				break;
 				
 			case 3:
-				user1.delUser();
-				
 				break;
 				
 			case 4:
+				user1.criar();
 				user1.escrever(user1);
 				break;
 				
