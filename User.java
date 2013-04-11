@@ -5,16 +5,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.swing.JOptionPane;
+
 
 public class User {
 	
-	private User[] vetor = new User[1000];
 	private String[] name = new String[1000];
 	private String[] email= new String[1000];
-	
-	private int id = 0;
+	private int[] id = new int[1000];
 	private int i = 1;
-	private int j = 1;
 	
 //nome	
 	public String getName() {
@@ -34,58 +33,32 @@ public class User {
 	}
 //id	
 	public int getId() {
-		return id;
+		return id[i];
 	}
 	
 	public void setId() {
 		
-		this.id = i;
+		this.id[i] = i;
 		i += 1;
 	}
 	
-//Users	
-	/*public void setUser(User u){
-		vetor[y] = u;
-		y += 1;
-	
-	}*/
-	
-	//public void setUsers(String nome){
-		//for(int j = 0; j < vetor.length; i++){
-			//name[j]=this.nome;
-//		}
-	//}
-		
-	/*public void getUsers(){
-		return Users;
-	}*/
-	
-//Manipulação de arquivos
-	
-	void criar(){
-		java.io.File diretorio = new java.io.File("/home/user78/workspace/github");
-		
-		boolean statusDir = diretorio.mkdir();
-		System.out.println(statusDir);
-		
-		String arq = "arquivo.txt";
-		
-		java.io.File arquivo = new java.io.File(diretorio,arq);
-		
-		try {
-			boolean statusArq = arquivo.createNewFile();
-			System.out.println(statusArq);
+	void mostrar(){
+		int j = 1; 
+		while(j < i){
+		JOptionPane.showMessageDialog(null, "Id: "+id[j]+"\nNome: "+name[j]+"\nEmail: "+email[j]);
+		j++;
 		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	//fim cria()
 	}
 	
 	
+//Protegido pela lei dos direitos autorais e pela lei de Deus, pq só Deus sabe como isso funciona 	
+	
+// 4 e 5 = Manipulação de arquivos
+	
 	void escrever(User user){
-		File dir = new File("/home/user78/workspace/github");
+		File dir = new File("/home/keuvy/workspace/github");
 		File arq = new File(dir,"User.txt");
+		int j = 1;
 		
 		try{
 			arq.createNewFile();
@@ -94,10 +67,10 @@ public class User {
             
             
             while(j < i){
+            	printWriter.println(id[j]);
             	printWriter.println(name[j]);
-            	printWriter.println(user.getId());   
-                printWriter.println(user.getEmail());
-            	j++;
+            	printWriter.println(email[j]);   
+                j++;
             }
             
             

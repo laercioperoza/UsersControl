@@ -29,14 +29,13 @@ User user1 = new User();
 				break;
 		
 			case 2:
-				
+				user1.mostrar();
 				break;
 				
 			case 3:
 				break;
 				
 			case 4:
-				user1.criar();
 				user1.escrever(user1);
 				break;
 				
