@@ -24,8 +24,7 @@ User user1 = new User();
 				user1.setId();
 				
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso !!!");
-			
-				
+
 				break;
 		
 			case 2:

@@ -53,9 +53,9 @@ public class User {
 	}
 	
 	
-//Protegido pela lei dos direitos autorais e pela lei de Deus, pq só Deus sabe como isso funciona 	
+//Protegido pela lei dos direitos autorais e pela lei de Deus, pq sao Deus sabe como isso funciona 	
 	
-// 4 e 5 = Manipulação de arquivos
+// 4 e 5 = Manipulacao de arquivos
 	
 	void escrever(User user){
 		File dir = new File("C:\\Git");
@@ -113,11 +113,9 @@ public class User {
 		if(teste == this.id[x]){
 			this.id[x] = 0 ;
 			this.name[x] = null;
-			this.email = null;
-			break;
+			this.email[x] = null;
 			}
 		x += 1;
-		
 		}
 	
 	}
